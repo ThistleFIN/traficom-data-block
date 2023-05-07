@@ -1,5 +1,6 @@
 // Import jQuery if it's not globally available
 import $ from 'jquery';
+let requestData = {};
 
 /**
  * Main function to initialize the Traficom blocks on the page.
@@ -7,23 +8,20 @@ import $ from 'jquery';
 document.addEventListener('DOMContentLoaded', function() {
 	// Find all Traficom blocks on the page
 	const traficomBlocks = document.querySelectorAll('.traficom-block');
-
 	traficomBlocks.forEach((block) => {
 		const checkedYearInput = $(block.querySelector('.traficom-block-checked-year')).select2();
 		const modelInput = $(block.querySelector('.traficom-block-model')).select2();
 		const table = block.querySelector('.traficom-data-table');
-		let requestData = {};
+
 
 		// Update requestData and fetch data on input changes
 		$(checkedYearInput).add(modelInput).on('change', (e) => {
-			const yearValue = checkedYearInput.val();
-			const modelValue = encodeURIComponent(modelInput.val());
+			let yearValue = checkedYearInput.val();
+			let modelValue = encodeURIComponent(modelInput.val());
 
 			if (yearValue && modelValue) {
-				requestData = {
-					year_key: yearValue,
-					model_key: modelValue,
-				};
+				requestData.year_key = yearValue;
+				requestData.model_key = modelValue;
 
 				fetchData(table, requestData);
 			}
