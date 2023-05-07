@@ -128,9 +128,6 @@ class TraficomApi
 				case 'Mediaani':
 					$model_array[$array_key]['median'] = $item['values'][0];
 					break;
-				case 'Hylkaysprosentti':
-					$model_array[$array_key]['rejection_percent'] = $item['values'][0];
-					break;
 				case 'Hyvaksytyt':
 					$model_array[$array_key]['approved'] = $item['values'][0];
 					break;
@@ -142,6 +139,12 @@ class TraficomApi
 		}
 
 		$model_array = array_values($model_array);
+
+		foreach ($model_array as $key => $value) {
+			if((int) $value['amount'] && (int) $value['rejected']) {
+				$model_array[$key]['rejection_percent'] = number_format( (int)$value['rejected'] / (int)$value['amount'] * 100, 2);
+			}
+		}
 
 		return array('data' => $model_array);
 	}
