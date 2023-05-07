@@ -37,14 +37,15 @@ registerBlockType( 'traficom-block/traficom-data', {
 	save() {
 		return (
 		<div className="traficom-block">
+			<label className="traficom-block-model-label traficom-block-label traficom-block-full-label">
+				{__('Automalli:', 'traficom-block')}
+				<select className="traficom-block-model traficom-select2" multiple></select>
+			</label>
 			<label className="traficom-block-checked-year-label traficom-block-label traficom-block-half-label">
 				{__('Katsastusvuosi:', 'traficom-block')}
 				<select className="traficom-block-checked-year traficom-select2"></select>
 			</label>
-            <label className="traficom-block-model-label traficom-block-label traficom-block-full-label">
-				{__('Automalli:', 'traficom-block')}
-				<select className="traficom-block-model traficom-select2" multiple></select>
-			</label>
+
 			<table className="traficom-data-table" width="100%">
 				<thead>
 					<tr>

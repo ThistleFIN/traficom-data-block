@@ -1,10 +1,10 @@
 # Traficom Block
 - Contributors: Roosa Virta
-- CTags: plugin, WordPress, api, traficom
-- CTested up to: 6.1
-- CStable tag: 1.0.0
-- CLicense: GPL-2.0-or-later
-- CLicense URI: https://www.gnu.org/licenses/gpl-2.0.html
+- Tags: plugin, WordPress, api, traficom
+- Tested up to: 6.1
+- Stable tag: 1.0.0
+- License: GPL-2.0-or-later
+- License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 The Traficom Block is a WordPress plugin that allows users to display car inspection data based on the year and car
 model. It fetches data from the Traficom API and displays the data in a responsive DataTable.
