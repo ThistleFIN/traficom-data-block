@@ -3,7 +3,7 @@
  * Plugin Name:       Traficom Data Block
  * Description:       Block for fetching inspection data from Traficom API.
  * Requires at least: 6.1
- * Requires PHP:      7.4
+ * Requires PHP:      8.2
  * Version:           0.1.0
  * Author:            Roosa Virta
  * License:           GPL-2.0-or-later
