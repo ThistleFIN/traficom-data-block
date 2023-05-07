@@ -1,7 +1,7 @@
 {
 	"name": "traficom-data-block",
 	"version": "0.1.0",
-	"description": "Example block scaffolded with Create Block tool.",
+	"description": "The Traficom Block is a WordPress plugin that allows users to display car inspection data based on the year and car\nmodel. It fetches data from the Traficom API and displays the data in a responsive DataTable.",
 	"author": "The WordPress Contributors",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",

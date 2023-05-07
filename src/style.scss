@@ -1,3 +1,70 @@
 .traficom-block {
 	margin: 1em 0;
+	button.dt-button.buttons-columnVisibility{
+		background: transparent !important;
+		color: #598191 !important;
+		border-color: #598191 !important;
+		border-width: 2px !important;
+		box-shadow: none !important;
+		font-weight: bold;
+		transition: all 0.4s ease-in-out;
+		font-size: 0.8em;
+		padding: 0.3em 0.5em;
+		&:before {
+			content: "\f177";
+			font-family: "dashicons";
+			font-size: 1.2em;
+			margin-right: 0.3em;
+			vertical-align: middle;
+		}
+
+		&:not(.active), &:hover {
+			background: #598191 !important;
+			color: #efefef !important;
+		}
+		&:not(.active) {
+			&:before {
+				content: "\f530";
+			}
+		}
+	}
+	.traficom-block-label {
+		width: 100%;
+		max-width: 500px;
+		margin-right: 1em;
+		margin-bottom: 1em;
+	}
+	.select2-container .select2-selection--multiple .select2-selection__rendered {
+		margin: 0;
+	}
+
+	table, td, th {
+		border: none;
+	}
+
+	button.dt-button.active:focus:not(.disabled), div.dt-button.active:focus:not(.disabled), a.dt-button.active:focus:not(.disabled), input.dt-button.active:focus:not(.disabled) {
+		background: transparent !important;
+	}
+
+
+	table.dataTable {
+		overflow: hidden;
+		box-shadow: 0 0 20px rgba(0,0,0,0.1);
+		thead{
+		background: #598191;
+		color: #efefef;
+	}
+		tbody {
+			tr.even {
+				background-color: #e8e8e84f;
+			}
+
+			th,
+			td {
+				padding: 15px;
+				background-color: rgba(255, 255, 255, 0.2);
+			}
+		}
+
+	}
 }

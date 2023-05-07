@@ -1,7 +1,6 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
 import './style.scss';
-import './editor.scss';
 import './api.js';
 
 /**
@@ -52,11 +51,11 @@ registerBlockType( 'traficom-block/traficom-data', {
 						<th>{__('Automalli', 'traficom-block')}</th>
 						<th>{__('Käyttöönottovuosi', 'traficom-block')}</th>
 						<th>{__('Katsastusmäärä', 'traficom-block')}</th>
-						<th>{__('KA. ajokilometrit', 'traficom-block')}</th>
-						<th>{__('Mediaani ajokilometrit', 'traficom-block')}</th>
-						<th>{__('Hylkäysprosentti', 'traficom-block')}</th>
-						<th>{__('Hyväksytty', 'traficom-block')}</th>
-						<th>{__('Hylätty', 'traficom-block')}</th>
+						<th className="toggle">{__('KA. ajokilometrit', 'traficom-block')}</th>
+						<th className="toggle">{__('Mediaani ajokilometrit', 'traficom-block')}</th>
+						<th className="toggle">{__('Hylkäysprosentti', 'traficom-block')}</th>
+						<th className="toggle">{__('Hyväksytty', 'traficom-block')}</th>
+						<th className="toggle">{__('Hylätty', 'traficom-block')}</th>
 					</tr>
 				</thead>
 			</table>

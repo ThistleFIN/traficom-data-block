@@ -1,1 +1,64 @@
-.traficom-block{margin:1em 0}
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/style.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+.traficom-block {
+  margin: 1em 0;
+}
+.traficom-block button.dt-button.buttons-columnVisibility {
+  background: transparent !important;
+  color: #598191 !important;
+  border-color: #598191 !important;
+  border-width: 2px !important;
+  box-shadow: none !important;
+  font-weight: bold;
+  transition: all 0.4s ease-in-out;
+  font-size: 0.8em;
+  padding: 0.3em 0.5em;
+}
+.traficom-block button.dt-button.buttons-columnVisibility:before {
+  content: "\f177";
+  font-family: "dashicons";
+  font-size: 1.2em;
+  margin-right: 0.3em;
+  vertical-align: middle;
+}
+.traficom-block button.dt-button.buttons-columnVisibility:not(.active), .traficom-block button.dt-button.buttons-columnVisibility:hover {
+  background: #598191 !important;
+  color: #efefef !important;
+}
+.traficom-block button.dt-button.buttons-columnVisibility:not(.active):before {
+  content: "\f530";
+}
+.traficom-block .traficom-block-label {
+  width: 100%;
+  max-width: 500px;
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+.traficom-block .select2-container .select2-selection--multiple .select2-selection__rendered {
+  margin: 0;
+}
+.traficom-block table, .traficom-block td, .traficom-block th {
+  border: none;
+}
+.traficom-block button.dt-button.active:focus:not(.disabled), .traficom-block div.dt-button.active:focus:not(.disabled), .traficom-block a.dt-button.active:focus:not(.disabled), .traficom-block input.dt-button.active:focus:not(.disabled) {
+  background: transparent !important;
+}
+.traficom-block table.dataTable {
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.traficom-block table.dataTable thead {
+  background: #598191;
+  color: #efefef;
+}
+.traficom-block table.dataTable tbody tr.even {
+  background-color: rgba(232, 232, 232, 0.3098039216);
+}
+.traficom-block table.dataTable tbody th,
+.traficom-block table.dataTable tbody td {
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/*# sourceMappingURL=style-index.css.map*/

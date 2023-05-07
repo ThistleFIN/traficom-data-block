@@ -5,12 +5,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Request;
 
 /**
- * TraficomApi class
+ * Class TraficomApi
+ *
+ * @since 0.1.0
  */
 class TraficomApi
 {
 	/**
-	 * TraficomApi constructor
+	 * TraficomApi constructor.
+	 *
+	 * @since 0.1.0
 	 */
 	public function __construct()
 	{
@@ -18,9 +22,11 @@ class TraficomApi
 	}
 
 	/**
-	 * Register Traficom API routes
+	 * Register Traficom API routes.
 	 *
 	 * @return void
+	 * @since 0.1.0
+	 *
 	 */
 	public function register_traficom_api_routes(): void
 	{
@@ -39,7 +45,7 @@ class TraficomApi
 				'model' => array(
 					'required' => true,
 					'type' => 'string',
-				)
+				),
 			),
 		));
 
@@ -51,18 +57,20 @@ class TraficomApi
 	}
 
 	/**
-	 * Get disqualified cars data
+	 * Get disqualified cars data.
 	 *
 	 * @param WP_REST_Request $request
 	 *
 	 * @return array|WP_Error
+	 * @since 0.1.0
+	 *
 	 */
-	function get_disqualified_cars(WP_REST_Request $request): array
+	public function get_disqualified_cars(WP_REST_Request $request): array
 	{
 		$year = $request->get_param('year');
 		$models = explode(',', urldecode($request->get_param('model')));
 		foreach ($models as $index => $model) {
-			if($model == __('All models', 'traficom-block')){
+			if ($model == __('All models', 'traficom-block')) {
 				$models[$index] = 'Merkit yhteensä - Mallit yhteensä';
 			}
 		}
@@ -80,14 +88,13 @@ class TraficomApi
 					'filter' => 'item',
 					'values' => $models,
 				),
-			)
+			),
 		);
-
 
 		try {
 			$data = $this->request_from_traficom_api('POST', $query_params);
 		} catch (RequestException $e) {
-			return new WP_Error('request_failed','Unable to fetch data from Traficom API', array('status' => 500));
+			return new WP_Error('request_failed', 'Unable to fetch data from Traficom API', array('status' => 500));
 		}
 		$model_array = array();
 		foreach ($data['data'] as $item) {
@@ -95,10 +102,10 @@ class TraficomApi
 			$row_year = $item['key'][2];
 			$array_key = $row_model . '_' . $row_year;
 
-			if($row_model == 'Merkit yhteensä - Mallit yhteensä'){
+			if ($row_model == 'Merkit yhteensä - Mallit yhteensä') {
 				$row_model = __('Kaikki automallit', 'traficom-block');
 			}
-			if(!isset($model_array[$array_key])){
+			if (!isset($model_array[$array_key])) {
 				$model_array[$array_key] = array(
 					'model' => $row_model,
 					'first_year' => $row_year,
@@ -140,13 +147,15 @@ class TraficomApi
 	}
 
 	/**
-	 * Send request to Traficom API
+	 * Send request to Traficom API.
 	 *
 	 * @param string $method
 	 * @param ?array $params
 	 *
 	 * @return array
 	 * @throws RequestException
+	 * @since 0.1.0
+	 *
 	 */
 	function request_from_traficom_api(string $method, ?array $params = array()): array
 	{
@@ -155,7 +164,7 @@ class TraficomApi
 			'Content-Type' => 'application/json',
 		];
 
-		if(get_locale() == 'fi'){
+		if (get_locale() == 'fi') {
 			$traficom_api_url = 'https://trafi2.stat.fi/PXWeb/api/v1/fi/TraFi/Katsastuksen_vikatilastot/010_kats_tau_101.px';
 		} else {
 			$traficom_api_url = 'https://trafi2.stat.fi/PXWeb/api/v1/en/TraFi/Katsastuksen_vikatilastot/010_kats_tau_101.px';
@@ -171,15 +180,18 @@ class TraficomApi
 		$request = new Request($method, $traficom_api_url, $headers, $body);
 
 		$res = $client->sendAsync($request)->wait();
+
 		return json_decode($res->getBody()->getContents(), true);
 	}
 
 	/**
-	 * Get dropdown values for the filters
+	 * Get dropdown values for the filters.
 	 *
 	 * @param WP_REST_Request $request
 	 *
 	 * @return array|WP_Error
+	 * @since 0.1.0
+	 *
 	 */
 	public function get_dropdown_values(WP_REST_Request $request)
 	{
