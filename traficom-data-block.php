@@ -12,6 +12,7 @@
  * Domain Path: 	  /languages
  */
 
+require 'vendor/autoload.php';
 require 'traficom-api.php';
 
 /**
