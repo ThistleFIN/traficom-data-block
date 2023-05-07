@@ -62,16 +62,19 @@ add_action('init', 'traficom_block_register_block');
  */
 function traficom_block_enqueue_assets(): void
 {
-	if (!is_admin()) {
-		wp_enqueue_style('traficom-block-css');
-		wp_enqueue_style( 'dashicons' );
-		wp_enqueue_style('select2-css');
-		wp_enqueue_style('datatables-css');
-	}
+	if(has_block('traficom-block/traficom-data')) {
+		if (!is_admin()) {
+			wp_enqueue_style('traficom-block-css');
+			wp_enqueue_style( 'dashicons' );
+			wp_enqueue_style('select2-css');
+			wp_enqueue_style('datatables-css');
+		}
 		wp_enqueue_script('jquery');
 		wp_enqueue_script('traficom-block-js');
 		wp_enqueue_script('select2-js');
 		wp_enqueue_script('datatables-js');
+	}
+
 }
 
 add_action('wp_enqueue_scripts', 'traficom_block_enqueue_assets');
